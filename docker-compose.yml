@@ -47,7 +47,7 @@ services:
     ports:
       - "8002"
     environment:
-      - GROQ_API_KEY=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
+      - GROQ_API_KEY=**secret key**
       - GROQ_URL=https://api.groq.com/openai/v1/chat/completions
       - UPLOAD_DIR=/uploads
       - GENERATED_DIR=/generated_pdfs
