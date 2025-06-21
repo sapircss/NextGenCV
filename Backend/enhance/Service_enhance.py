@@ -25,7 +25,7 @@ app.add_middleware(
 )
 
 # Set your Groq API Key
-GROQ_API_KEY = os.getenv("GROQ_API_KEY","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")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY","**secret key**")
 GROQ_URL = os.getenv("GROQ_URL")
 
 
