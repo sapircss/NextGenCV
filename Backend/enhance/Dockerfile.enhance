@@ -1,0 +1,7 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.enhance.txt .
+RUN pip install --no-cache-dir -r requirements.enhance.txt
+COPY Service_enhance.py .
+EXPOSE 8002
+CMD ["uvicorn", "Service_enhance:app", "--host", "0.0.0.0", "--port", "8002"]
