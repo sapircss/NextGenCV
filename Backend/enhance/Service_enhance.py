@@ -24,8 +24,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Set your Groq API Key
-GROQ_API_KEY = os.getenv("GROQ_API_KEY","**secret key**")
+# Groq API Key
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_URL = os.getenv("GROQ_URL")
 
 
@@ -52,7 +52,16 @@ async def enhance_resume(content: ResumeContent):
         payload = {
             "model": "llama3-70b-8192",
             "messages": [
-                {"role": "system", "content": "You are a professional resume writer. Improve and enhance the given experience text to make it more professional and impressive and I want it to be designed"},
+                {
+    "role": "system",
+   "content": (
+    "You are a professional and highly experienced resume writer. "
+    "Transform the provided resume text into an enhanced, detailed, and compelling resume. "
+    "Expand responsibilities with detail, quantify achievements, and use strong action verbs and keywords. "
+    "**IMPORTANT:** Absolutely do NOT add any introductions, disclaimers, or phrases like 'Here is', 'Below is', or 'The following'. "
+    "Return ONLY the pure rewritten resume content. No preamble, no headings, no extra lines."
+    )
+},
                 {"role": "user", "content": content.text}
             ]
         }
